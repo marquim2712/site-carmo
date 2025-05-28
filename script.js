@@ -23,58 +23,50 @@ function setupMobileMenu() {
 
         // Adiciona listener para fechar o menu ao clicar em um link dentro do menu mobile
         mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.style.display = 'none';
-                console.log('Link do menu mobile clicado, menu ocultado.');
-            });
-        });
-        console.log('Listeners de clique nos links do menu mobile anexados.');
-
-        // Anexa listener de clique no botão do menu
-        menuButton.addEventListener('click', () => {
-            console.log('Botão do menu clicado.');
-            // Alterna a visibilidade
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.style.display = 'block';
-                console.log('Menu mobile exibido.');
-            } else {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.style.display = 'none';
-                console.log('Menu mobile oculto.');
+            // Verifica se o listener já foi anexado para este link (opcional, para maior segurança)
+            if (!link.dataset.mobileMenuListener) {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.style.display = 'none';
+                    console.log('Link do menu mobile clicado, menu ocultado.');
+                });
+                link.dataset.mobileMenuListener = 'true'; // Marca que o listener foi anexado
+                console.log('Listener de clique em link do menu mobile anexado:', link);
             }
         });
-        console.log('Event listener de clique no botão do menu anexado.');
+        console.log('Listeners de clique nos links do menu mobile verificados/anexados.');
+
+        // Anexa listener de clique no botão do menu
+        // Verifica se o listener já foi anexado para o botão (opcional)
+        if (!menuButton.dataset.mobileMenuListener) {
+            menuButton.addEventListener('click', () => {
+                console.log('Botão do menu clicado.');
+                // Alterna a visibilidade
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.style.display = 'block';
+                    console.log('Menu mobile exibido.');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.style.display = 'none';
+                    console.log('Menu mobile oculto.');
+                }
+            });
+            menuButton.dataset.mobileMenuListener = 'true'; // Marca que o listener foi anexado
+            console.log('Event listener de clique no botão do menu anexado:', menuButton);
+        }
 
         // Marca como inicializado para não reconfigurar
         mobileMenuInitialized = true;
         console.log('Menu mobile inicializado com sucesso.');
 
     } else {
-        console.log('Botão do menu ou menu mobile NÃO encontrados. Tentando novamente...');
+        console.log('Botão do menu ou menu mobile NÃO encontrados. Não foi possível configurar o menu mobile nesta tentativa.');
     }
 }
 
-// Tenta configurar o menu quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', setupMobileMenu);
-
-// Tenta configurar o menu também no evento load (para garantir em algumas situações)
-window.addEventListener('load', setupMobileMenu);
-
-// Tenta configurar o menu em intervalos regulares caso os elementos sejam carregados dinamicamente
-// (menos ideal, mas pode ajudar a depurar se for um problema de timing)
-let checkMenuInterval = setInterval(setupMobileMenu, 500); // Tenta a cada meio segundo
-
-// Para parar o intervalo após um tempo ou quando o menu for configurado com sucesso
-setTimeout(() => {
-    clearInterval(checkMenuInterval);
-    console.log('Intervalo de verificação do menu parado após tempo limite.');
-    // Mensagem de fallback se não foi inicializado após tempo limite
-    if (!mobileMenuInitialized) {
-        console.error('Erro: Menu mobile não foi inicializado após o tempo limite. Elementos #nav-toggle ou #mobile-menu não encontrados.');
-    }
-}, 5000); // Para após 5 segundos (reduzido para depuração mais rápida)
+// Tenta configurar o menu mobile imediatamente
+setupMobileMenu();
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
