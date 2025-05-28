@@ -1,23 +1,49 @@
 // Menu Mobile
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM completamente carregado.');
     const menuButton = document.getElementById('nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    if (menuButton && mobileMenu) {
+    if (menuButton) {
+        console.log('Botão do menu encontrado:', menuButton);
+    } else {
+        console.log('Botão do menu NÃO encontrado.');
+    }
+
+    if (mobileMenu) {
+        console.log('Menu mobile encontrado:', mobileMenu);
         // Garante o estado inicial oculto usando display none
         mobileMenu.style.display = 'none';
         mobileMenu.classList.add('hidden');
+        console.log('Estado inicial do menu mobile definido como oculto.');
 
+        // Adiciona listener para fechar o menu ao clicar em um link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.style.display = 'none';
+                console.log('Link do menu mobile clicado, menu ocultado.');
+            });
+        });
+    } else {
+        console.log('Menu mobile NÃO encontrado.');
+    }
+
+    if (menuButton && mobileMenu) {
         menuButton.addEventListener('click', () => {
+            console.log('Botão do menu clicado.');
             // Alterna a visibilidade
             if (mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.remove('hidden');
                 mobileMenu.style.display = 'block';
+                console.log('Menu mobile exibido.');
             } else {
                 mobileMenu.classList.add('hidden');
                 mobileMenu.style.display = 'none';
+                console.log('Menu mobile oculto.');
             }
         });
+        console.log('Event listener de clique no botão do menu anexado.');
     }
 
     // Smooth Scroll
