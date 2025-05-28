@@ -2,7 +2,7 @@
 let mobileMenuInitialized = false;
 
 function setupMobileMenu() {
-    console.log('Tentando configurar o menu mobile...');
+    console.log('Tentando configurar o menu mobile com delegação de eventos...');
 
     // Se já inicializado, sair
     if (mobileMenuInitialized) {
@@ -10,11 +10,11 @@ function setupMobileMenu() {
         return;
     }
 
-    const menuButton = document.getElementById('nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const navbar = document.querySelector('.navbar'); // Seleciona a barra de navegação como pai
 
-    if (menuButton && mobileMenu) {
-        console.log('Botão do menu e menu mobile encontrados. Configurando listeners...');
+    if (mobileMenu && navbar) {
+        console.log('Menu mobile e barra de navegação encontrados. Configurando delegação de eventos...');
 
         // Garante o estado inicial oculto usando display none
         mobileMenu.style.display = 'none';
@@ -24,24 +24,32 @@ function setupMobileMenu() {
         // Adiciona listener para fechar o menu ao clicar em um link dentro do menu mobile
         mobileMenu.querySelectorAll('a').forEach(link => {
             // Verifica se o listener já foi anexado para este link (opcional, para maior segurança)
-            if (!link.dataset.mobileMenuListener) {
+            if (!link.dataset.mobileMenuLinkListener) { // Usar nome diferente para evitar conflito
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                     mobileMenu.style.display = 'none';
                     console.log('Link do menu mobile clicado, menu ocultado.');
                 });
-                link.dataset.mobileMenuListener = 'true'; // Marca que o listener foi anexado
+                link.dataset.mobileMenuLinkListener = 'true'; // Marca que o listener foi anexado
                 console.log('Listener de clique em link do menu mobile anexado:', link);
             }
         });
         console.log('Listeners de clique nos links do menu mobile verificados/anexados.');
 
-        // Anexa listener de clique no botão do menu
-        // Verifica se o listener já foi anexado para o botão (opcional)
-        if (!menuButton.dataset.mobileMenuListener) {
-            menuButton.addEventListener('click', () => {
-                console.log('Botão do menu clicado.');
-                // Alterna a visibilidade
+        // Adiciona um único listener de clique na barra de navegação (delegação)
+        navbar.addEventListener('click', (event) => {
+            const target = event.target;
+            console.log('Clique detectado na navbar. Target:', target);
+
+            // Verifica se o clique foi no botão do menu hambúrguer ou em um de seus filhos (como o ícone <i>)
+            const menuButton = target.closest('#nav-toggle');
+
+            if (menuButton) {
+                console.log('Clique detectado no botão do menu hamburguer.');
+                // Previne o comportamento padrão se houver (embora o botão não tenha um padrão)
+                // event.preventDefault();
+
+                // Alterna a visibilidade do menu mobile
                 if (mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.remove('hidden');
                     mobileMenu.style.display = 'block';
@@ -51,22 +59,21 @@ function setupMobileMenu() {
                     mobileMenu.style.display = 'none';
                     console.log('Menu mobile oculto.');
                 }
-            });
-            menuButton.dataset.mobileMenuListener = 'true'; // Marca que o listener foi anexado
-            console.log('Event listener de clique no botão do menu anexado:', menuButton);
-        }
+            }
+        });
+        console.log('Delegação de eventos para botão do menu hamburguer configurada na navbar.');
 
         // Marca como inicializado para não reconfigurar
         mobileMenuInitialized = true;
         console.log('Menu mobile inicializado com sucesso.');
 
     } else {
-        console.log('Botão do menu ou menu mobile NÃO encontrados. Não foi possível configurar o menu mobile nesta tentativa.');
+        console.log('Menu mobile (#mobile-menu) ou navbar (.navbar) NÃO encontrados. Não foi possível configurar a delegação de eventos.');
     }
 }
 
-// Tenta configurar o menu mobile imediatamente
-setupMobileMenu();
+// Configura o menu mobile quando o DOM estiver completamente carregado
+document.addEventListener('DOMContentLoaded', setupMobileMenu);
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -204,5 +211,32 @@ window.addEventListener('scroll', function() {
         navbar.classList.add('shadow-lg');
     } else {
         navbar.classList.remove('shadow-lg');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuButton && mobileMenu) {
+        // Alterna o menu ao clicar no botão
+        menuButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fecha o menu ao clicar em qualquer link dentro dele
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Fecha o menu ao clicar fora dele (opcional)
+        document.addEventListener('click', function(e) {
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuButton) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
     }
 }); 
