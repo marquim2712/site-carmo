@@ -1,37 +1,38 @@
 // Menu Mobile
+let mobileMenuInitialized = false;
+
 function setupMobileMenu() {
     console.log('Tentando configurar o menu mobile...');
+
+    // Se já inicializado, sair
+    if (mobileMenuInitialized) {
+        console.log('Menu mobile já inicializado. Saindo.');
+        return;
+    }
+
     const menuButton = document.getElementById('nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (menuButton && mobileMenu) {
         console.log('Botão do menu e menu mobile encontrados. Configurando listeners...');
+
         // Garante o estado inicial oculto usando display none
         mobileMenu.style.display = 'none';
         mobileMenu.classList.add('hidden');
         console.log('Estado inicial do menu mobile definido como oculto.');
 
-        // Remove listeners existentes para evitar duplicação, se houver
-        const newMenuButton = menuButton.cloneNode(true);
-        menuButton.parentNode.replaceChild(newMenuButton, menuButton);
-        const currentMenuButton = newMenuButton;
-
-        // Adiciona listener para fechar o menu ao clicar em um link
+        // Adiciona listener para fechar o menu ao clicar em um link dentro do menu mobile
         mobileMenu.querySelectorAll('a').forEach(link => {
-             // Remove listeners existentes nos links para evitar duplicação
-            const newLink = link.cloneNode(true);
-            link.parentNode.replaceChild(newLink, link);
-
-            newLink.addEventListener('click', () => {
+            link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
                 mobileMenu.style.display = 'none';
                 console.log('Link do menu mobile clicado, menu ocultado.');
             });
         });
-        console.log('Listeners de clique nos links do menu mobile reconfigurados.');
+        console.log('Listeners de clique nos links do menu mobile anexados.');
 
         // Anexa listener de clique no botão do menu
-        currentMenuButton.addEventListener('click', () => {
+        menuButton.addEventListener('click', () => {
             console.log('Botão do menu clicado.');
             // Alterna a visibilidade
             if (mobileMenu.classList.contains('hidden')) {
@@ -45,8 +46,13 @@ function setupMobileMenu() {
             }
         });
         console.log('Event listener de clique no botão do menu anexado.');
+
+        // Marca como inicializado para não reconfigurar
+        mobileMenuInitialized = true;
+        console.log('Menu mobile inicializado com sucesso.');
+
     } else {
-        console.log('Botão do menu ou menu mobile NÃO encontrados.');
+        console.log('Botão do menu ou menu mobile NÃO encontrados. Tentando novamente...');
     }
 }
 
@@ -58,13 +64,17 @@ window.addEventListener('load', setupMobileMenu);
 
 // Tenta configurar o menu em intervalos regulares caso os elementos sejam carregados dinamicamente
 // (menos ideal, mas pode ajudar a depurar se for um problema de timing)
-let checkMenuInterval = setInterval(setupMobileMenu, 1000); // Tenta a cada segundo
+let checkMenuInterval = setInterval(setupMobileMenu, 500); // Tenta a cada meio segundo
 
 // Para parar o intervalo após um tempo ou quando o menu for configurado com sucesso
 setTimeout(() => {
     clearInterval(checkMenuInterval);
-    console.log('Intervalo de verificação do menu parado.');
-}, 10000); // Para após 10 segundos (ajuste se necessário)
+    console.log('Intervalo de verificação do menu parado após tempo limite.');
+    // Mensagem de fallback se não foi inicializado após tempo limite
+    if (!mobileMenuInitialized) {
+        console.error('Erro: Menu mobile não foi inicializado após o tempo limite. Elementos #nav-toggle ou #mobile-menu não encontrados.');
+    }
+}, 5000); // Para após 5 segundos (reduzido para depuração mais rápida)
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
