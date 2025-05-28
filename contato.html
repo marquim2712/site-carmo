@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Carmo Assistência Técnica</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/" class="navbar-brand">Carmo Assistência Técnica</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="nav-link">Início</a>
+                    <a href="/chamados.html" class="nav-link">Chamados</a>
+                    <a href="/produtos.html" class="nav-link">Produtos</a>
+                    <a href="/contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="nav-link">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contato -->
+    <section class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">📞 Entre em Contato</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Informações de Contato -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="text-2xl font-bold mb-6">Informações de Contato</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-phone text-primary text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold">Telefone/WhatsApp</h3>
+                                <p>(34) 99973-3669</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-clock text-primary text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold">Horário de Atendimento</h3>
+                                <p>Segunda a Sexta: 08h às 17:30h</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-map-marker-alt text-primary text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold">Endereço</h3>
+                                <p>Avenida Nove, 309</p>
+                                <p>Centro, Ituiutaba - MG</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Contato -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="text-2xl font-bold mb-6">Envie uma Mensagem</h2>
+                    <form id="contatoForm" class="space-y-6">
+                        <div>
+                            <label class="form-label">Nome</label>
+                            <input type="text" name="nome" required class="form-control">
+                        </div>
+                        <div>
+                            <label class="form-label">E-mail</label>
+                            <input type="email" name="email" required class="form-control">
+                        </div>
+                        <div>
+                            <label class="form-label">Telefone/WhatsApp</label>
+                            <input type="tel" name="telefone" required class="form-control">
+                        </div>
+                        <div>
+                            <label class="form-label">Assunto</label>
+                            <input type="text" name="assunto" required class="form-control">
+                        </div>
+                        <div>
+                            <label class="form-label">Mensagem</label>
+                            <textarea name="mensagem" rows="4" required class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="footer-title">Contato</h3>
+                    <p>WhatsApp: [Número]</p>
+                    <p>E-mail: contato@detectasolucoes.com</p>
+                    <p>Atendimento: Segunda a Sexta, das 08h às 18h</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="footer-link">Início</a></li>
+                        <li><a href="/chamados.html" class="footer-link">Chamados</a></li>
+                        <li><a href="/produtos.html" class="footer-link">Produtos</a></li>
+                        <li><a href="/contato.html" class="footer-link">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Endereço</h3>
+                    <p>Avenida Nove, 309</p>
+                    <p>Centro, Ituiutaba - MG</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p>&copy; 2024 Carmo Assistência Técnica. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html> 

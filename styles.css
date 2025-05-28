@@ -1,0 +1,217 @@
+/* Variáveis de Cores */
+:root {
+    --cor-primaria: #B32228;
+    --cor-secundaria: #4C4C4C;
+    --cor-fundo: #F5F5F5;
+    --cor-texto: #1A1A1A;
+    --cor-hover: #8F1A1F;
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+}
+
+.navbar-brand {
+    color: var(--cor-primaria);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: var(--cor-texto);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--cor-primaria);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, var(--cor-secundaria), var(--cor-primaria));
+    color: white;
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* Botões */
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--cor-hover);
+}
+
+.btn-outline {
+    background-color: white;
+    color: var(--cor-primaria);
+}
+
+.btn-outline:hover {
+    background-color: #f8f8f8;
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    color: var(--cor-primaria);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Formulários */
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 2px rgba(179, 34, 40, 0.1);
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--cor-texto);
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #1A1A1A;
+    color: #fff;
+    padding: 3rem 0;
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.footer-link {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--cor-primaria);
+}
+
+.footer, .footer * {
+    color: #fff !important;
+}
+
+/* Animações */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    #nav-links {
+        display: none;
+    }
+}
+
+/* Utilitários */
+.text-primary {
+    color: var(--cor-primaria);
+}
+
+.bg-primary {
+    background-color: var(--cor-primaria);
+}
+
+.bg-secondary {
+    background-color: var(--cor-secundaria);
+}
+
+.shadow-hover {
+    transition: box-shadow 0.3s ease;
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+} 

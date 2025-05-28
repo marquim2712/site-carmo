@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrir Chamado Técnico - Carmo Assistência Técnica</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar sticky top-0 shadow-lg z-50 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="./img/logo-carmo.png" alt="Logo Carmo" class="h-8 w-8" style="object-fit:contain;">
+                    <a href="/" class="navbar-brand">Carmo Assistência Técnica</a>
+                </div>
+                <div class="hidden md:flex space-x-12">
+                    <a href="/" class="nav-link">Início</a>
+                    <a href="/chamados.html" class="nav-link">Chamados</a>
+                    <a href="/produtos.html" class="nav-link">Produtos</a>
+                    <a href="/contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="nav-link">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Formulário de Chamado -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-gray-100 via-gray-50 to-white min-h-screen">
+        <div class="max-w-3xl mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">🆘 Abrir Chamado Técnico</h1>
+            <div class="card p-10" data-aos="fade-up" data-aos-delay="100" style="box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+                <form id="chamadoForm" class="space-y-8">
+                    <div>
+                        <h2 class="text-lg font-semibold mb-4 border-b pb-2">Informações do Cliente</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="form-label">🏢 Nome da Empresa *</label>
+                                <input type="text" name="empresa" required class="form-control input-anim" placeholder="Ex: Carmo Assistência Técnica">
+                            </div>
+                            <div>
+                                <label class="form-label">📞 Telefone/WhatsApp *</label>
+                                <input type="tel" name="telefone" required class="form-control input-anim" placeholder="(xx) xxxxx-xxxx">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="form-label">📍 Local *</label>
+                                <input type="text" name="local" required class="form-control input-anim" placeholder="Endereço ou setor">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-semibold mb-4 border-b pb-2">Detalhes do Chamado</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="form-label">🖨️ Equipamento *</label>
+                                <select name="equipamento" required class="form-control input-anim">
+                                    <option value="">Selecione o equipamento</option>
+                                    <option value="computador">Computador/Notebook</option>
+                                    <option value="impressora">Impressora</option>
+                                    <option value="rede">Rede/Servidor</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label">🔧 Tipo de Problema *</label>
+                                <select name="tipo" required class="form-control input-anim">
+                                    <option value="">Selecione o tipo</option>
+                                    <option value="manutencao">Manutenção</option>
+                                    <option value="instalacao">Instalação</option>
+                                    <option value="configuracao">Configuração</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="form-label">📝 Descrição do Problema *</label>
+                                <textarea name="descricao" rows="4" required class="form-control input-anim" placeholder="Descreva o problema - junto o nome da impressora ou computador"></textarea>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="form-label">⚡ Prioridade *</label>
+                                <select name="prioridade" required class="form-control input-anim">
+                                    <option value="baixa">Baixa</option>
+                                    <option value="media">Média</option>
+                                    <option value="alta">Alta</option>
+                                    <option value="urgente">Urgente</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full mt-8 shadow-lg" style="background-color:#d62828;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:0.3s ease;">
+                        <i class="fab fa-whatsapp mr-2"></i> Enviar Chamado via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="footer-title">Contato</h3>
+                    <p>WhatsApp: <a href="https://wa.me/5534999733669" class="footer-link" target="_blank"><i class="fab fa-whatsapp"></i> (34) 99973-3669</a></p>
+                    <p>Atendimento: Segunda a Sexta, das 08h às 17:30h</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="footer-link">Início</a></li>
+                        <li><a href="/chamados.html" class="footer-link">Chamados</a></li>
+                        <li><a href="/produtos.html" class="footer-link">Produtos</a></li>
+                        <li><a href="/contato.html" class="footer-link">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Endereço</h3>
+                    <p>Avenida Nove, 309</p>
+                    <p>Centro, Ituiutaba - MG</p>
+                    <div class="flex justify-center md:justify-start gap-4 mt-4">
+                        <a href="#" class="footer-link" title="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="footer-link" title="Facebook"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://wa.me/[NÚMERO]" class="footer-link" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p>© 2025 Carmo Assistência Técnica – Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html> 

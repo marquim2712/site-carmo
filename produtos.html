@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Carmo Assistência Técnica</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="./img/logo-carmo.png" alt="Logo Carmo" class="h-8 w-8" style="object-fit:contain;">
+                    <a href="/" class="navbar-brand">Carmo Assistência Técnica</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="nav-link">Início</a>
+                    <a href="/chamados.html" class="nav-link">Chamados</a>
+                    <a href="/produtos.html" class="nav-link">Produtos</a>
+                    <a href="/contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="nav-link">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Vitrine de Produtos -->
+    <section class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">🛍️ Nossos Produtos</h1>
+            
+            <!-- Categorias -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Cartuchos e Toners -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-print card-icon"></i>
+                    <h3 class="card-title">Cartuchos e Toners</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Originais</li>
+                        <li>• Compatíveis</li>
+                        <li>• Todas as marcas</li>
+                    </ul>
+                    <a href="/pedido.html?produto=Cartuchos%20e%20Toners" class="text-primary hover:text-hover font-semibold">Pedir →</a>
+                </div>
+
+                <!-- Acessórios -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-keyboard card-icon"></i>
+                    <h3 class="card-title">Acessórios</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Teclados</li>
+                        <li>• Mouses</li>
+                        <li>• Cabos</li>
+                    </ul>
+                    <a href="/pedido.html?produto=Cabos%20e%20Acess%C3%B3rios" class="text-primary hover:text-hover font-semibold">Pedir →</a>
+                </div>
+
+                <!-- Peças -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-tools card-icon"></i>
+                    <h3 class="card-title">Peças</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Impressoras</li>
+                        <li>• Computadores</li>
+                        <li>• Notebooks</li>
+                    </ul>
+                    <a href="/pedido.html?produto=Pe%C3%A7as%20para%20Impressora" class="text-primary hover:text-hover font-semibold">Pedir →</a>
+                </div>
+
+                <!-- Encomendas -->
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-box card-icon"></i>
+                    <h3 class="card-title">Encomendas</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Produtos sob demanda</li>
+                        <li>• Orçamentos</li>
+                        <li>• Consultas</li>
+                    </ul>
+                    <a href="/pedido.html" class="text-primary hover:text-hover font-semibold">Pedir →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="footer-title">Contato</h3>
+                    <p>WhatsApp: <a href="https://wa.me/5534999733669" class="footer-link" target="_blank"><i class="fab fa-whatsapp"></i> (34) 99973-3669</a></p>
+                    <p>Atendimento: Segunda a Sexta, das 08h às 17:30h</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="footer-link">Início</a></li>
+                        <li><a href="/chamados.html" class="footer-link">Chamados</a></li>
+                        <li><a href="/produtos.html" class="footer-link">Produtos</a></li>
+                        <li><a href="/contato.html" class="footer-link">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Endereço</h3>
+                    <p>Avenida Nove, 309</p>
+                    <p>Centro, Ituiutaba - MG</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p>&copy; 2024 Carmo Assistência Técnica. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html> 

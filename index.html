@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carmo Assistência Técnica - Soluções em TI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="./img/logo-carmo.png" alt="Logo Carmo" class="h-8 w-8" style="object-fit:contain;">
+                    <a href="/" class="navbar-brand">Carmo Assistência Técnica</a>
+                </div>
+                <div class="hidden md:flex space-x-8" id="nav-links">
+                    <a href="/" class="nav-link">Início</a>
+                    <a href="/chamados.html" class="nav-link">Chamados</a>
+                    <a href="/produtos.html" class="nav-link">Produtos</a>
+                    <a href="/contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="nav-link" id="nav-toggle">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg py-2" id="mobile-menu">
+            <a href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Início</a>
+            <a href="/chamados.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Chamados</a>
+            <a href="/produtos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Produtos</a>
+            <a href="/contato.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="max-w-7xl mx-auto px-4 text-center" data-aos="fade-up">
+            <h1 class="hero-title">Soluções técnicas em TI com confiança e agilidade</h1>
+            <p class="hero-subtitle">Manutenção de impressoras, suporte em informática e infraestrutura de redes</p>
+            <div class="space-x-4">
+                <a href="/chamados.html" class="btn btn-primary">Abrir Chamado</a>
+                <a href="/produtos.html" class="btn btn-outline">Ver Produtos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">💼 Nossos Serviços</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-print card-icon"></i>
+                    <h3 class="card-title">Impressoras</h3>
+                    <p class="card-text">Manutenção preventiva e corretiva para todas as marcas</p>
+                    <a href="/chamados.html" class="text-primary hover:text-hover font-semibold">Solicitar →</a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-laptop card-icon"></i>
+                    <h3 class="card-title">Computadores</h3>
+                    <p class="card-text">Formatação, upgrades e suporte técnico completo</p>
+                    <a href="/chamados.html" class="text-primary hover:text-hover font-semibold">Solicitar →</a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-network-wired card-icon"></i>
+                    <h3 class="card-title">Redes/Servidores</h3>
+                    <p class="card-text">Configuração e manutenção de infraestrutura de TI</p>
+                    <a href="/chamados.html" class="text-primary hover:text-hover font-semibold">Solicitar →</a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-box card-icon"></i>
+                    <h3 class="card-title">Produtos</h3>
+                    <p class="card-text">Cartuchos, toners e peças para informática</p>
+                    <a href="/produtos.html" class="text-primary hover:text-hover font-semibold">Ver Produtos →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">🏢 Quem Somos</h2>
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-lg mb-6">
+                    A Carmo Assistência Técnica é uma empresa com anos de experiência no suporte técnico a órgãos públicos e empresas privadas.
+                    Localizada em Ituiutaba - MG, oferecemos confiança, rapidez e excelência técnica em cada atendimento.
+                </p>
+                <p class="text-lg mb-8">
+                    Nosso diferencial está na proximidade com o cliente, na responsabilidade com os prazos e na transparência com os serviços prestados.
+                </p>
+                <div class="card inline-block" data-aos="zoom-in" data-aos-delay="200">
+                    <p class="font-semibold">Razão Social: Carmo Assistência Técnica Ltda</p>
+                    <p>CNPJ: 23.865.876/0001-04</p>
+                    <p>Endereço: Avenida Nove, 309 - Centro, Ituiutaba - MG</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="footer-title">Contato</h3>
+                    <p>WhatsApp: <a href="https://wa.me/5534999733669" class="footer-link" target="_blank"><i class="fab fa-whatsapp"></i> (34) 99973-3669</a></p>
+                    <p>Atendimento: Segunda a Sexta, das 08h às 17:30h</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="footer-link">Início</a></li>
+                        <li><a href="/chamados.html" class="footer-link">Chamados</a></li>
+                        <li><a href="/produtos.html" class="footer-link">Produtos</a></li>
+                        <li><a href="/contato.html" class="footer-link">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Endereço</h3>
+                    <p>Avenida Nove, 309</p>
+                    <p>Centro, Ituiutaba - MG</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p>&copy; 2024 Carmo Assistência Técnica. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html> 
