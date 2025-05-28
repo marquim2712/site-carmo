@@ -4,17 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (menuButton && mobileMenu) {
-        // Certifica que o menu está oculto ao carregar
+        // Garante o estado inicial oculto usando display none
+        mobileMenu.style.display = 'none';
         mobileMenu.classList.add('hidden');
 
         menuButton.addEventListener('click', () => {
             // Alterna a visibilidade
             if (mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.remove('hidden');
-                mobileMenu.style.display = 'block'; // Garante que seja exibido
+                mobileMenu.style.display = 'block';
             } else {
                 mobileMenu.classList.add('hidden');
-                mobileMenu.style.display = 'none'; // Garante que seja oculto
+                mobileMenu.style.display = 'none';
             }
         });
     }
