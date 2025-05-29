@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Mobile Teste</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar bg-white shadow-md p-4">
+        <div class="flex justify-between items-center">
+            <span class="font-bold text-xl text-red-700">Menu Teste</span>
+            <div class="md:hidden">
+                <button class="nav-link" id="nav-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link">Início</a>
+                <a href="#" class="nav-link">Chamados</a>
+                <a href="#" class="nav-link">Produtos</a>
+                <a href="#" class="nav-link">Contato</a>
+            </div>
+        </div>
+        <div class="hidden md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg py-2 z-50" id="mobile-menu">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Início</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Chamados</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Produtos</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Contato</a>
+        </div>
+    </nav>
+    <main class="p-8 text-center">
+        <h1 class="text-2xl font-bold">Teste do Menu Mobile</h1>
+        <p class="mt-4">Abra no celular e teste o menu hambúrguer.</p>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            document.addEventListener('click', function(e) {
+                if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuButton) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html> 
